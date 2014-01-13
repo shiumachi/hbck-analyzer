@@ -36,7 +36,7 @@ orphan=`ag "Orphan region in HDFS: Unable to load .regioninfo from table" $TMP_F
 unabletoreadtableinfo=`ag "Unable to read .tableinfo from" $TMP_FILE | wc -l`
 lingeringfile=`ag "Found lingering reference file" $TMP_FILE | wc -l`
 
-echo `tail -2 $1 | head -1 | awk '{print $1}'`": Total inconsistencies detected\n"
+echo `tail -2 $1 | head -1 | awk '{print $1}'`": Total inconsistencies detected"
 if test ${rootregionnull} -ne 0; then echo $rootregionnull": Root Region or some of its attributes are null."; fi
 if test ${unabletocloseregion} -ne 0; then echo $unabletocloseregion": Unable to close region because meta does not have handle to reach it."; fi
 if test ${nohdfsnometadeployed} -ne 0; then echo $nohdfsnometadeployed": Region X, key=Y, not on HDFS or in META but deployed on Z --> Should FixAssignments."; fi
